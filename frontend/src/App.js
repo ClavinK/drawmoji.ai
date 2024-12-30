@@ -6,7 +6,7 @@ import Output from "./Output";
 
 function App() {
   return (
-    <div class="screen">
+    <div className="screen">
       <DrawingArea />
       <Output />
     </div>
