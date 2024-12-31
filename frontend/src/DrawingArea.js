@@ -22,6 +22,7 @@ const Canvas = () => {
   const [strokeWidth, setStrokeWidth] = useState(5);
   const [eraserWidth, setEraserWidth] = useState(10);
   const [strokeColor, setStrokeColor] = useState("#000000");
+//   const [isPopupVisible, setPopupVisible] = useState(null);
 
   const handleUndoClick = () => {
     if (canvasRef.current != null) {
@@ -48,6 +49,7 @@ const Canvas = () => {
 
   const handlePenClick = () => {
     setEraseMode(false);
+    // setPopupVisible(!isPopupVisible);
     if (canvasRef.current != null) {
       canvasRef.current.eraseMode(false);
     }
