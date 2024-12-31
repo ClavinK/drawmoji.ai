@@ -102,57 +102,67 @@ const Canvas = () => {
 
   return (
     <>
-    <div className="d-flex gap-2 align-items-center">
-      <label htmlFor="color">Stroke Color</label>
-      <input
-        type="color"
-        value={strokeColor}
-        onChange={handleStrokeColorChange}
-      />
-    </div>
-    <div className="tool-buttons">
-      {buttonsConfig.map((button, index) => <Button
-        key={index}
-        icon={button.icon}
-        onClick={button.onClick} />
-      )}
-    </div>
-    <label htmlFor="strokeWidth" className="form-label">
-      Stroke Width
-    </label>
-    <input
-      disabled={eraseMode}
-      type="range"
-      className="form-range"
-      min="1"
-      max="20"
-      step="1"
-      id="strokeWidth"
-      value={strokeWidth}
-      onChange={handleStrokeWidthChange}
-      />
-    <label htmlFor="eraserWidth" className="form-label">
-      Eraser width
-    </label>
-    <input
-      disabled={!eraseMode}
-      type="range"
-      className="form-range"
-      min="1"
-      max="20"
-      step="1"
-      id="eraserWidth"
-      value={eraserWidth}
-      onChange={handleEraserWidthChange}
-    />
-    <ReactSketchCanvas
-      style={styles}
-      width="27em"
-      height="27em"
-      strokeWidth={strokeWidth}
-      eraserWidth={eraserWidth}
-      strokeColor={strokeColor}
-      ref={canvasRef} />
+        <div className="d-flex gap-2 align-items-center">
+        <label htmlFor="color">Stroke Color</label>
+        <input
+            type="color"
+            value={strokeColor}
+            onChange={handleStrokeColorChange}
+        />
+        </div>
+        <div className="tool-buttons">
+        {buttonsConfig.map((button, index) => <Button
+            key={index}
+            icon={button.icon}
+            onClick={button.onClick} />
+        )}
+        </div>
+        <label htmlFor="strokeWidth" className="form-label">
+        Stroke Width
+        </label>
+        <input
+        disabled={eraseMode}
+        type="range"
+        className="form-range"
+        min="1"
+        max="20"
+        step="1"
+        id="strokeWidth"
+        value={strokeWidth}
+        onChange={handleStrokeWidthChange}
+        />
+        <label htmlFor="eraserWidth" className="form-label">
+        Eraser width
+        </label>
+        <input
+        disabled={!eraseMode}
+        type="range"
+        className="form-range"
+        min="1"
+        max="20"
+        step="1"
+        id="eraserWidth"
+        value={eraserWidth}
+        onChange={handleEraserWidthChange}
+        />
+        <ReactSketchCanvas
+        style={styles}
+        width="27em"
+        height="27em"
+        strokeWidth={strokeWidth}
+        eraserWidth={eraserWidth}
+        strokeColor={strokeColor}
+        ref={canvasRef} />
+        
+        <button onClick={() => {
+            canvasRef.current.exportImage("png").then(data => {
+                console.log(data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+        }}
+        >Submit Drawing</button>
     </>
   );
 };
