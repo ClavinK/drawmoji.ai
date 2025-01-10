@@ -118,7 +118,7 @@ const Canvas = () => {
         )}
         </div>
         <label htmlFor="strokeWidth" className="form-label">
-        Stroke Width
+        Stroke Width 
         </label>
         <input
         disabled={eraseMode}
@@ -154,7 +154,7 @@ const Canvas = () => {
         strokeColor={strokeColor}
         ref={canvasRef} />
         
-        <button onClick={() => {
+        <button className="generate-button" onClick={() => {
             canvasRef.current.exportImage("png").then(data => {
                 console.log(data);
             })
@@ -162,7 +162,7 @@ const Canvas = () => {
                 console.log(e);
             });
         }}
-        >Submit Drawing</button>
+        >Submit</button>
     </>
   );
 };

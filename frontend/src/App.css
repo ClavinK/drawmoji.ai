@@ -9,6 +9,15 @@
   height: 1em;
   width: 1em;
   padding: 5%;
+  background-color: #ccf1ff;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.button:hover {
+  background-color: #99d9e6
 }
 
 .drawing {
@@ -21,7 +30,7 @@
 
 .screen{
   position: absolute;
-  background-color: #606060;
+  background-color: #B3C8CF;
   width: 30rem;
   height: 50rem;
   top: 50%;
@@ -42,6 +51,22 @@
 .output {
   padding-top: 120%;
   padding-left: 5%;
+}
+
+.generate-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF8DE;
+  border: none;
+  border-radius: 25%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.2em;
+  height: 1.5em;
+  width: 10em;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .popup {
