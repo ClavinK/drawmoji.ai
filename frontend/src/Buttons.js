@@ -1,6 +1,6 @@
 import React from "react";
 
-function Button({icon, label, onClick }) {
+function Buttons({icon, label, onClick }) {
   return (
   <button onClick={onClick} className="button">
     {icon} {label}
@@ -8,4 +8,4 @@ function Button({icon, label, onClick }) {
   );
 }
 
-export default Button;
+export default Buttons;
