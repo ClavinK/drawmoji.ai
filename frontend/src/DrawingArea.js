@@ -3,6 +3,7 @@ import { ReactSketchCanvas } from 'react-sketch-canvas';
 import ToolPanel from './ToolPanel';
 import CanvasControls from './CanvasControls';
 import './App.css';
+import axios from 'axios';
 
 const styles = {
   border: '0.0625rem solid #9c9c9c',
@@ -89,7 +90,13 @@ const Canvas = () => {
         className="generate-button"
         onClick={() => {
           canvasRef.current.exportImage("png").then((data) => {
-            console.log(data);
+            axios.post('http://127.0.0.1:8000/api/drawings/', { png_file: data })
+              .then(response => {
+                console.log(response.data);
+              })
+              .catch((error) => {
+                console.log(error); 
+              });
           }).catch((e) => {
             console.log(e);
           });

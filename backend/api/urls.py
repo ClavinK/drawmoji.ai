@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
+from .views import DrawingList
 
 # URLConf
 urlpatterns = [
-    path("", views.say_hello)
+    path('drawings/', DrawingList.as_view(), name='index'),
 ]
