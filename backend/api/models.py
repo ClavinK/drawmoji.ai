@@ -7,3 +7,4 @@ class Drawing(models.Model):
     
     # def __str__(self):
     #     return self.png_file[:50]
+
