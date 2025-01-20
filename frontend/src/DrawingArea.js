@@ -17,6 +17,10 @@ const Canvas = () => {
   const [eraserWidth, setEraserWidth] = useState(10);
   const [strokeColor, setStrokeColor] = useState("#000000");
 
+  const instance = {
+    responseType: 'blob',
+  }
+
   const handleUndoClick = () => {
     if (canvasRef.current != null) {
       canvasRef.current.undo();
@@ -90,9 +94,11 @@ const Canvas = () => {
         className="generate-button"
         onClick={() => {
           canvasRef.current.exportImage("png").then((data) => {
-            axios.post('http://127.0.0.1:8000/api/drawings/', { png_file: data })
+            axios.post('http://127.0.0.1:8000/api/drawings/', { png_file: data, }, instance)
               .then(response => {
-                console.log(response.data);
+                // Handle success response, converts blob to image url and opens in new tab
+                const imageUrl = URL.createObjectURL(response.data);
+                window.open(imageUrl, '_blank');
               })
               .catch((error) => {
                 console.log(error); 
